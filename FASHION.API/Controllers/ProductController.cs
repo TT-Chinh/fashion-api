@@ -36,6 +36,20 @@ namespace FASHION.API.Controllers
             }
         }
 
+        [HttpPost("GetProductByName")]
+        public ProductModel GetProductByName(ProductSearch data)
+        {
+            try
+            {
+                IProductReponsitory productReponsitory = new ProductReponsitory();
+                return productReponsitory.GetProductByName(data);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         [HttpGet("GetProductDetails")]
         public ProductDetails GetProductDetails(int id)
         {

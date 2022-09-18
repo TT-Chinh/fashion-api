@@ -56,6 +56,30 @@ namespace FASHION.API.Reponsitories
             }
         }
 
+        public ProductModel GetProductByName(ProductSearch data)
+        {
+            try
+            {
+                using (var model = new FASHIONBOTDBContext())
+                {
+                    ProductModel p = null;
+                    p = model.Products.Where(p => p.Name.ToLower().Contains(data.Name.ToLower())).Select(p => new ProductModel
+                    {
+                        Id = p.Id,
+                        Name = p.Name,
+                        Price = p.Price,
+                        Discount = p.Discount,
+                        Image = model.Images.Where(k => k.ProductId == p.Id && k.Indexs == 0).FirstOrDefault().FileName
+                    }).Single();
+                    return p;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         public ProductDetails GetProductDetails(int id)
         {
             try

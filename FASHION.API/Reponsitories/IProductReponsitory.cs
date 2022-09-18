@@ -12,6 +12,7 @@ namespace FASHION.API.Reponsitories
         IList<ProductModel> GetAllProducts(ProductData data);
         IList<ProductModel> GetProductsPayCountMost();
         IList<ProductModel> GetProductsMostRelevant(int categoryID, string brand = null);
+        ProductModel GetProductByName(ProductSearch data);
         ProductDetails GetProductDetails(int id);
         Product GetProduct(string name);
         IList<string> GetAllBrands();

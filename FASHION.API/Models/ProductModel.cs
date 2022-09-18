@@ -35,4 +35,12 @@ namespace FASHION.API.Models
         public int? End { get; set; }
         public bool? Driect { get; set; }
     }
+
+    public class ProductSearch
+    {
+        public string Name { get; set; }
+        public string Brand { get; set; }
+        public string Category { get; set; }
+        public string Color { get; set; }
+    }
 }
